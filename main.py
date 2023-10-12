@@ -206,14 +206,17 @@ update_methods = {
 if __name__ == '__main__':
         argument_list = parse_arguments()
 
-        if ARGUMENTS['operation'].casefold() == 'create':
-                create_methods[ARGUMENTS['model']](argument_list)
-        elif ARGUMENTS['operation'].casefold() == 'list':
-                list_anything(argument_list)
-        elif ARGUMENTS['operation'].casefold() == 'update':
-                update_methods[ARGUMENTS['model']](argument_list)
-        elif ARGUMENTS['operation'].casefold() == 'delete':
-                delete_anything(argument_list)
-        else:
-                help()
-                print('WRONG operation! EXITING!')
+        try:
+                if ARGUMENTS['operation'].casefold() == 'create':
+                        create_methods[ARGUMENTS['model']](argument_list)
+                elif ARGUMENTS['operation'].casefold() == 'list':
+                        list_anything(argument_list)
+                elif ARGUMENTS['operation'].casefold() == 'update':
+                        update_methods[ARGUMENTS['model']](argument_list)
+                elif ARGUMENTS['operation'].casefold() == 'delete':
+                        delete_anything(argument_list)
+                else:
+                        help()
+                        print('WRONG operation! EXITING!')
+        except Exception as e:
+                print(f"Houston, we have a problem! {e}")

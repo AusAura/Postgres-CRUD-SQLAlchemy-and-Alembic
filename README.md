@@ -1,5 +1,5 @@
 # Postgres-CRUD-SQLAlchemy-and-Alembic
-CLI CRUD is done in the main.py file. Uses currying.
+CLI CRUD is done in the main.py file.
 
 - Uses a PostgreSQL.
 - Uses Alembic for easy migrations.
